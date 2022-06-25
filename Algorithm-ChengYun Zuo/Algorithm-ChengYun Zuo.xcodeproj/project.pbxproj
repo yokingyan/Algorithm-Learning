@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C8CB6AC285C78FA009BBF15 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6AB285C78FA009BBF15 /* main.cpp */; };
+		2C8CB6B4285C7B01009BBF15 /* class01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6B2285C7B01009BBF15 /* class01.cpp */; };
+		2C8CB6BA285D76CD009BBF15 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6B9285D76CD009BBF15 /* main.cpp */; };
+		2C8CB6BD285D7BA1009BBF15 /* class02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6BB285D7BA1009BBF15 /* class02.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,11 @@
 
 /* Begin PBXFileReference section */
 		2C8CB6A8285C78FA009BBF15 /* Algorithm-ChengYun Zuo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Algorithm-ChengYun Zuo"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C8CB6AB285C78FA009BBF15 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2C8CB6B2285C7B01009BBF15 /* class01.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class01.cpp; sourceTree = "<group>"; };
+		2C8CB6B3285C7B01009BBF15 /* class01.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = class01.hpp; sourceTree = "<group>"; };
+		2C8CB6B9285D76CD009BBF15 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2C8CB6BB285D7BA1009BBF15 /* class02.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class02.cpp; sourceTree = "<group>"; };
+		2C8CB6BC285D7BA1009BBF15 /* class02.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = class02.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +47,9 @@
 		2C8CB69F285C78FA009BBF15 = {
 			isa = PBXGroup;
 			children = (
-				2C8CB6AA285C78FA009BBF15 /* Algorithm-ChengYun Zuo */,
+				2C8CB6B9285D76CD009BBF15 /* main.cpp */,
+				2C8CB6B5285D7519009BBF15 /* class02 */,
+				2C8CB6AA285C78FA009BBF15 /* class01 */,
 				2C8CB6A9285C78FA009BBF15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +62,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2C8CB6AA285C78FA009BBF15 /* Algorithm-ChengYun Zuo */ = {
+		2C8CB6AA285C78FA009BBF15 /* class01 */ = {
 			isa = PBXGroup;
 			children = (
-				2C8CB6AB285C78FA009BBF15 /* main.cpp */,
+				2C8CB6B2285C7B01009BBF15 /* class01.cpp */,
+				2C8CB6B3285C7B01009BBF15 /* class01.hpp */,
 			);
-			path = "Algorithm-ChengYun Zuo";
+			path = class01;
+			sourceTree = "<group>";
+		};
+		2C8CB6B5285D7519009BBF15 /* class02 */ = {
+			isa = PBXGroup;
+			children = (
+				2C8CB6BB285D7BA1009BBF15 /* class02.cpp */,
+				2C8CB6BC285D7BA1009BBF15 /* class02.hpp */,
+			);
+			path = class02;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8CB6AC285C78FA009BBF15 /* main.cpp in Sources */,
+				2C8CB6BD285D7BA1009BBF15 /* class02.cpp in Sources */,
+				2C8CB6B4285C7B01009BBF15 /* class01.cpp in Sources */,
+				2C8CB6BA285D76CD009BBF15 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
