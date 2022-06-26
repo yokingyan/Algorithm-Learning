@@ -136,3 +136,70 @@ void QuickSort::quickSort(vector<int> &arr, int L, int R){
         quickSort(arr, p[1] + 1, R);
     }
 }
+
+//堆排序
+//某个数处在现在index位置，往上继续移动
+void HeapSort::heapInsert(vector<int> &arr, int index){
+    while (arr[index] > arr[(index - 1) / 2]) {
+        swap(arr[index], arr[(index - 1) / 2]);
+        index = (index - 1) / 2;
+    }
+}
+
+void HeapSort::heapify(vector<int> &arr, int index, int heapSize){
+    int left = index * 2 + 1;
+    while (left < heapSize) {
+        int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
+        largest = arr[largest] > arr[index] ? largest : index;
+        
+        if(largest == index){
+            break;
+        }
+        
+        swap(arr[largest], arr[index]);
+        index = largest;
+        left = 2 * index + 1;
+    }
+}
+
+void HeapSort::heapSort(vector<int> &arr){
+    if (arr.size() < 1) {
+        return;
+    }else{
+        int heapSize = arr.size();
+//        for (int i = 0; i < arr.size(); i++) { //O(N)
+//            heapInsert(arr, i);  //O(logN)
+//        }
+        for (int i = arr.size() - 1; i >= 0; i--) {//O(N)
+            heapify(arr, i, heapSize);
+        }
+        
+        //int heapSize = arr.size();
+        swap(arr[0], arr[--heapSize]);
+        while (heapSize > 0) {
+            heapify(arr, 0, heapSize);
+            swap(arr[0], arr[--heapSize]);
+        }
+    }
+}
+
+//堆排序扩展题目
+void SortArrayDistanceLessK::sortArrayDistanceLessK(vector<int>& arr, int k){
+    priority_queue<int, vector<int>, greater<int>> heap;  //小根堆
+    int index = 0;
+    int len = arr.size();
+    
+    for(;index <= min(len, k);index++){
+        heap.push(arr[index]);
+    }
+    int i = 0;
+    for (; index < arr.size(); i++, index++) {
+        heap.push(arr[index]);
+        arr[i] = heap.top();
+        heap.pop();
+    }
+    while (!heap.empty()) {
+        arr[i++] = heap.top();
+        heap.pop();
+    }
+}

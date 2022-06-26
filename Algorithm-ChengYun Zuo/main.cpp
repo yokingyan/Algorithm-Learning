@@ -80,8 +80,34 @@ int main(int argc, const char * argv[]){
 //    printArr(res);
     
 //    `快速排序
-    QuickSort::quickSort(arr1, 0, arr1.size()-1);
-    printArr(arr1);
+//    QuickSort::quickSort(arr1, 0, arr1.size()-1);
+//    printArr(arr1);
+    
+//    `堆排序
+//    HeapSort::heapSort(arr1);
+//    printArr(arr1);
+    
+//    test priority_queue with small Heap;
+//    priority_queue<int, vector<int>, greater<int>> smallHeap;
+//    vector<int> vals = {11, 77, 33, 55, 44, 66, 99, 88, 22};
+//    for(auto &e : vals) smallHeap.push(e);
+//    while(!smallHeap.empty()){
+//        cout << smallHeap.top() << " ";
+//        smallHeap.pop();
+//    }
+//    cout<<endl;
+//    priority_queue<int, vector<int>, greater<int>> heap;
+//    for(auto &e : arr1) heap.push(e);
+//    while(!heap.empty()){
+//        cout << heap.top() << " ";
+//        heap.pop();
+//    }
+//    `堆排序扩展问题
+    //要满足数组几乎有序，即数组中每个元素移动距离不超过k
+//    printArr(arr1);
+//    SortArrayDistanceLessK::sortArrayDistanceLessK(arr1, 8);
+//    printArr(arr1);
+    
     
     return 0;
 }
