@@ -9,6 +9,7 @@
 #include <vector>
 #include "class01.hpp"
 #include "class02.hpp"
+#include "class03.hpp"
 
 
 using namespace std;
@@ -108,6 +109,73 @@ int main(int argc, const char * argv[]){
 //    SortArrayDistanceLessK::sortArrayDistanceLessK(arr1, 8);
 //    printArr(arr1);
     
+    /*
+     class 03 详解桶排序以及排序内容大总结
+     */
+    
+//    `比较器（c++仿函数）的使用
+    /*
+     1.比较器的实质就是重载比较运算符
+     2.特殊标准的排序
+     */
+    
+    //抽象类与接口的使用(to be continue...)
+//    Student o1;
+//    Student o2("yan", 2021020989, 25);
+//    vector<Student> students = {o1, o2};
+    //Student::printStudents(students);
+    
+    //cpp仿函数
+    //1.使用STL提供的仿函数（greater, less, greater_equal, less_equal）
+    //静态数组
+//    int arr7[10] = {65,59,96,13,21,80,72,33,44,99};
+//    printArr(arr7, 10);
+//    sort(arr7, arr7+10, greater<int>());
+//    printArr(arr7, 10);
+    //vector
+//    vector<int> arr8 = {65,59,96,13,21,80,72,33,44,99,100,12,3,2,1,7,6,9};
+//    printArr(arr8);
+//    sort(arr8.begin(), arr8.begin() + arr8.size(), greater<int>());
+//    printArr(arr8);
+//    //2.自己编写仿函数，用于特定抽象数据类型
+//    Stu stu[3];
+//    string name;
+//    int id, age;
+    
+//    for(int i = 0;i < 3;i++){
+//        cin>>name>>id>>age;
+//        stu[i] = Stu(name,id,age);
+//    }
+//    stu[1] = {"yan liang", 1, 21};
+//    stu[0] = {"wang aobo", 2, 23};
+//    stu[2] = {"he zhaopu", 3, 24};
+    
+//    printStudents(stu, 3);
+//    sort(stu, stu+3, idAscendingComparator);
+//    printStudents(stu, 3);
+//    sort(stu, stu+3, idDescendingComparator);
+//    printStudents(stu, 3);
+//    sort(stu, stu+3, ageAscendingComparator);
+//    printStudents(stu, 3);
+//    sort(stu, stu+3, ageDescendingComparator);
+//    printStudents(stu, 3);
+
+    
+    
+//    `非基于比较的排序-需要根据具体数据状况来制定比较规则
+//    `基数排序
+//    int digit = RadixSort::maxBits(arr1);
+//    cout<<digit<<endl;
+//    cout<<RadixSort::getDigit(89, 2)<<endl;
+//    vector<int> arr5 = {31,82,63,32,25,13,107,534,421,92,321,31,9021,2192};
+//    printArr(arr5);
+//    RadixSort::radixSort(arr5);
+//    printArr(arr5);
+//    `计数排序
+//    vector<int> arr6 = {32,45,23,12,34,54,89,45,3,187};
+//    printArr(arr6);
+//    CountSort::countSort(arr6);
+//    printArr(arr6);
     
     return 0;
 }

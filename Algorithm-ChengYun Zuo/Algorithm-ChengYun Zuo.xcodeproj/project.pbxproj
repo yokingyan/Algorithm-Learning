@@ -10,6 +10,7 @@
 		2C8CB6B4285C7B01009BBF15 /* class01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6B2285C7B01009BBF15 /* class01.cpp */; };
 		2C8CB6BA285D76CD009BBF15 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6B9285D76CD009BBF15 /* main.cpp */; };
 		2C8CB6BD285D7BA1009BBF15 /* class02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6BB285D7BA1009BBF15 /* class02.cpp */; };
+		2C97AAC028689356000C21D5 /* class03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C97AABE28689356000C21D5 /* class03.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		2C8CB6B9285D76CD009BBF15 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2C8CB6BB285D7BA1009BBF15 /* class02.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class02.cpp; sourceTree = "<group>"; };
 		2C8CB6BC285D7BA1009BBF15 /* class02.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = class02.hpp; sourceTree = "<group>"; };
+		2C97AABE28689356000C21D5 /* class03.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class03.cpp; sourceTree = "<group>"; };
+		2C97AABF28689356000C21D5 /* class03.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = class03.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +51,10 @@
 			isa = PBXGroup;
 			children = (
 				2C8CB6B9285D76CD009BBF15 /* main.cpp */,
-				2C8CB6B5285D7519009BBF15 /* class02 */,
 				2C8CB6AA285C78FA009BBF15 /* class01 */,
+				2C8CB6B5285D7519009BBF15 /* class02 */,
+				2C97AABD28689325000C21D5 /* class03 */,
+				2C97AAC128694F43000C21D5 /* class04 */,
 				2C8CB6A9285C78FA009BBF15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +83,22 @@
 				2C8CB6BC285D7BA1009BBF15 /* class02.hpp */,
 			);
 			path = class02;
+			sourceTree = "<group>";
+		};
+		2C97AABD28689325000C21D5 /* class03 */ = {
+			isa = PBXGroup;
+			children = (
+				2C97AABE28689356000C21D5 /* class03.cpp */,
+				2C97AABF28689356000C21D5 /* class03.hpp */,
+			);
+			path = class03;
+			sourceTree = "<group>";
+		};
+		2C97AAC128694F43000C21D5 /* class04 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = class04;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C8CB6BD285D7BA1009BBF15 /* class02.cpp in Sources */,
+				2C97AAC028689356000C21D5 /* class03.cpp in Sources */,
 				2C8CB6B4285C7B01009BBF15 /* class01.cpp in Sources */,
 				2C8CB6BA285D76CD009BBF15 /* main.cpp in Sources */,
 			);
