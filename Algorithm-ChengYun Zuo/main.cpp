@@ -10,13 +10,14 @@
 #include "class01.hpp"
 #include "class02.hpp"
 #include "class03.hpp"
+#include "class04.hpp"
 
 
 using namespace std;
 
 int main(int argc, const char * argv[]){
     
-    vector<int> arr1 = {3,8,6,3,2,1,10,5,4,9};
+//    vector<int> arr1 = {3,8,6,3,2,1,10,5,4,9};
 //    printArr(arr1);
         
     /*
@@ -176,6 +177,83 @@ int main(int argc, const char * argv[]){
 //    printArr(arr6);
 //    CountSort::countSort(arr6);
 //    printArr(arr6);
+    
+    /*
+     class 04 链表
+     */
+    
+    //HashSet: only key
+    //1. 增删改查- O(1)
+    //2. 基础类型-值传递；非基础类型-引用传递
+//    HashAndTree::testForUnorderedSet();
+//    HashAndTree::testForUnorderedMap();
+//    HashAndTree::testForOrderedSet();
+//    HashAndTree::testForOrderedMap();
+    
+    //=====链表=====
+    //链表反转
+    //单链表
+//    Node* head1 = new Node(1);
+//    head1->next = new Node(2);
+//    head1->next->next = new Node(3);
+//    head1->next->next->next = new Node(4);
+//    head1->next->next->next->next = new Node(5);
+//    ReverseList::printLinkedList(head1);
+//    head1 = ReverseList::reverseList(head1);
+//    ReverseList::printLinkedList(head1);
+    //双链表
+//    DoubleNode* head2 = new DoubleNode(1);
+//    head2->next = new DoubleNode(2);
+//    head2->next->pre = head2;
+//    head2->next->next = new DoubleNode(3);
+//    head2->next->next->pre = head2->next;
+//    head2->next->next->next = new DoubleNode(4);
+//    head2->next->next->next->pre = head2->next->next;
+//    head2->next->next->next->next = new DoubleNode(5);
+//    head2->next->next->next->next->pre = head2->next->next->next;
+//    ReverseList::printDoubleLinkedList(head2);
+//    head2 = ReverseList::reverseList(head2);
+//    ReverseList::printDoubleLinkedList(head2);
+    
+    //打印公共部分
+//    Node* head3 = new Node(1);
+//    head3->next = new Node(2);
+//    head3->next->next = new Node(3);
+//    head3->next->next->next = new Node(4);
+//    head3->next->next->next->next = new Node(5);
+//    ReverseList::printLinkedList(head3);
+//    Node* head4 = new Node(0);
+//    head4->next = new Node(2);
+//    head4->next->next = new Node(3);
+//    head4->next->next->next = new Node(5);
+//    head4->next->next->next->next = new Node(6);
+//    head4->next->next->next->next->next = new Node(7);
+//    ReverseList::printLinkedList(head4);
+//    PrintCommonPart::printCommonPart(head3, head4);
+    
+    //回文链表
+//    Node* head5 = new Node(1);
+//    head5->next = new Node(2);
+//    head5->next->next = new Node(3);
+//    head5->next->next->next = new Node(4);
+//    head5->next->next->next->next = new Node(5);
+//    head5->next->next->next->next->next = new Node(4);
+//    head5->next->next->next->next->next->next = new Node(3);
+//    head5->next->next->next->next->next->next->next = new Node(2);
+//    head5->next->next->next->next->next->next->next->next = new Node(1);
+//    //head5->next->next->next->next = new Node(1);
+//    ReverseList::printLinkedList(head5);
+//    cout<<"是否为回文链表: "<<endl;
+//    cout<<"Based Stack(need n extra space)[way one]: ";
+//    cout<<(IsPalindromeList::isPalindromeList1(head5) ? "YES" : "NO")<<endl;
+//    cout<<"Based Stack(need n/2 extra space)[way two]: ";
+//    cout<<(IsPalindromeList::isPalindromeList2(head5) ? "YES" : "NO")<<endl;
+//    cout<<"Double Pointer(need 1 extra space)[way three]: ";
+//    cout<<(IsPalindromeList::isPalindromeList3(head5) ? "YES" : "NO")<<endl;
+    
+    //SmallerEqualBigger
+    
+    
     
     return 0;
 }
