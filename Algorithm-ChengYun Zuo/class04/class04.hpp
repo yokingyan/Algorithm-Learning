@@ -137,4 +137,38 @@ public:
     static bool isPalindromeList3(Node* head);
 };
 
+class SmallerEqualBigger{
+public:
+    //机试写法
+    static Node* listPartition1(Node*& head, int pivot);
+    static void arrPartition(vector<Node*>& nodeArr, int pivot);
+    //面试写法
+    static Node* listPartition2(Node* head, int pivot);
+};
+
+struct RandomNode{
+    int val;
+    RandomNode* next;
+    RandomNode* rand;
+    
+    RandomNode(int val): val(val), next(nullptr), rand(nullptr) {}
+};
+
+class CopyListWithRandom{
+public:
+    static RandomNode* copyListWithRandom1(RandomNode* head);
+    static RandomNode* copyListWithRandom2(RandomNode* head);
+    
+    static void printRandLinkedList(RandomNode* head);
+};
+
+class FindFirstIntersectNode{
+public:
+    static Node* getIntersectNode(Node* head1, Node* head2);
+    static Node* getLoopNode(Node* head);
+    static Node* noLoop(Node* head1, Node* head2);
+    static Node* bothLoop(Node* head1, Node* loop1, Node* head2, Node* loop2);
+};
+
+
 #endif /* class04_hpp */

@@ -252,8 +252,42 @@ int main(int argc, const char * argv[]){
 //    cout<<(IsPalindromeList::isPalindromeList3(head5) ? "YES" : "NO")<<endl;
     
     //SmallerEqualBigger
+//    Node* head6 = new Node(2);
+//    head6->next = new Node(5);
+//    head6->next->next = new Node(0);
+//    head6->next->next->next = new Node(9);
+//    head6->next->next->next->next = new Node(4);
+//    head6->next->next->next->next->next = new Node(1);
+//    ReverseList::printLinkedList(head6);
+//    SmallerEqualBigger::listPartition1(head6, 5);
+//    cout<<"ArrPartition: "<<endl;
+//    ReverseList::printLinkedList(head6);
+//    cout<<"List Partition: "<<endl;
+//    SmallerEqualBigger::listPartition2(head6, 5);
+//    ReverseList::printLinkedList(head6);
     
+    //CopyListWithRandom
+//    RandomNode* head7 = new RandomNode(0);
+//    head7->next = new RandomNode(1);
+//    RandomNode* p1 = head7->next;
+//    head7->next->next = new RandomNode(2);
+//    //RandomNode* p2 = head7->next->next;
+//    head7->next->next->next = new RandomNode(3);
+//    RandomNode* p3 = head7->next->next->next;
+//    head7->next->next->next->next = new RandomNode(4);
+//    //RandomNode* p4 = head7->next->next->next->next;
+//    head7->rand = p1;
+//    //head7->next->rand = p3;
+//    head7->next->next->rand = p3;
+//    head7->next->next->next->next->rand = p1;
+//    CopyListWithRandom::printRandLinkedList(head7);
+    //copy thr list
+//    RandomNode* head7Copy1 = CopyListWithRandom::copyListWithRandom1(head7);
+//    CopyListWithRandom::printRandLinkedList(head7Copy1);
+//    RandomNode* head7Copy2 = CopyListWithRandom::copyListWithRandom2(head7);
+//    CopyListWithRandom::printRandLinkedList(head7Copy2);
     
-    
+    //
+   
     return 0;
 }

@@ -400,7 +400,178 @@ bool IsPalindromeList::isPalindromeList3(Node* head){
 }
 
 //SmallerEqualBigger
-class SmallerEqualBigger{
-public:
+//机试写法
+Node* SmallerEqualBigger::listPartition1(Node*& head, int pivot){
     //
-};
+    if (head == nullptr) {
+        return head;
+    }
+    //find the length of list
+    Node* cur = head;
+    int i = 0;
+    while (cur) {
+        i++;
+        cur = cur->next;
+    }
+    vector<Node*> nodeArr(i, 0);
+    i = 0;
+    cur = head;
+    //convert to arr
+    for (i = 0; i < nodeArr.size(); i++) {
+        nodeArr[i] = cur;
+        cur = cur->next;
+    }
+    //partition in arr
+    arrPartition(nodeArr, pivot);
+    //convert to linkedlist
+    for (i = 1; i != nodeArr.size(); i++) {
+        nodeArr[i - 1]->next = nodeArr[i];
+    }
+    nodeArr[i - 1]->next = nullptr;
+    return nodeArr[0];
+}
+
+void SmallerEqualBigger::arrPartition(vector<Node*>& nodeArr, int pivot){
+    int small = -1;
+    int big = nodeArr.size();
+    int index = 0;
+    while (index != big) {
+        if (nodeArr[index]->val < pivot) {
+            swap(nodeArr[++small], nodeArr[index++]);
+        }else if (nodeArr[index]->val == pivot) {
+            index++;
+        }else{
+            swap(nodeArr[--big], nodeArr[index++]);
+        }
+    }
+}
+
+//面试写法
+Node* SmallerEqualBigger::listPartition2(Node *head, int pivot){
+    // 6个指针
+    Node* smallHead = nullptr;
+    Node* smallTail = nullptr;
+    Node* equalHead = nullptr;
+    Node* equalTail = nullptr;
+    Node* bigHead = nullptr;
+    Node* bigTail = nullptr;
+    //save next node
+    Node* next = nullptr;
+    // every node distributed to three lists
+    while (head) {
+        next = head->next;
+        head->next = nullptr;
+        if (head->val < pivot) {
+            if (smallHead == nullptr) {
+                smallHead = head;
+                smallTail = head;
+            }else{
+                smallTail->next = head;
+                smallTail = head;
+            }
+        }else if (head->val == pivot) {
+            if (equalHead == nullptr) {
+                equalHead = head;
+                equalTail = head;
+            }else{
+                equalTail->next = head;
+                equalTail = head;
+            }
+        }else {
+            if (bigHead == nullptr) {
+                bigHead = head;
+                bigTail = head;
+            }else {
+                bigTail->next = head;
+                bigTail = head;
+            }
+        }
+        head = next;
+    }
+    //small and equal reconnect
+    if (smallTail) {
+        smallTail->next = equalHead;
+        equalTail = equalTail == nullptr ? smallTail : equalTail;
+    }
+    if (equalTail) {
+        equalTail->next = bigHead;
+    }
+    return smallHead ? smallHead : equalHead ? equalHead : bigHead;
+}
+
+//CopyListWithRandom
+void CopyListWithRandom::printRandLinkedList(RandomNode *head){
+    RandomNode* cur = head;
+    cout<<"Order: ";
+    while (cur) {
+        cout<<cur->val<<" => ";
+        cur = cur->next;
+    }
+    cout<<"null"<<endl;
+    cur = head;
+    cout<<"Rand: ";
+    while (cur) {
+        if (cur->rand) {
+            cout<<cur->val<<" => "<<cur->rand->val<<" // ";
+        }else{
+            cout<<"- ";
+        }
+        cur = cur->next;
+    }
+    cout<<endl;
+}
+
+//copy with hashMap
+RandomNode* CopyListWithRandom::copyListWithRandom1(RandomNode *head){
+    unordered_map<RandomNode*, RandomNode*> helpMap;
+    RandomNode* cur = head;
+    while (cur) {
+        helpMap.insert(make_pair(cur, new RandomNode(cur->val)));
+        cur = cur->next;
+    }
+    cur = head;
+    while (cur) {
+        helpMap[cur]->next = helpMap[cur->next];
+        helpMap[cur]->rand = helpMap[cur->rand];
+        cur = cur->next;
+    }
+    return helpMap[head];
+}
+
+//unuse hashMap(xiu!!!)
+RandomNode* CopyListWithRandom::copyListWithRandom2(RandomNode *head){
+    if (head == nullptr) {
+        return head;
+    }
+    RandomNode* cur = head;
+    RandomNode* next = nullptr;
+    // copy node and link to every node
+    //1 -> 2 ==> 1 -> 1` -> 2
+    while (cur) {
+        next = cur->next;
+        cur->next = new RandomNode(cur->val);
+        cur->next->next = next;
+        cur = next;
+    }
+    cur = head;
+    RandomNode* curCopy = nullptr;
+    // set copy node rand
+    while (cur) {
+        next = cur->next->next;
+        curCopy = cur->next;
+        curCopy->rand = cur->rand ? cur->rand->next : nullptr;//太妙了
+        cur = next;
+    }
+    //split
+    RandomNode* res = head->next;
+    cur = head;
+    while (cur) {
+        next = cur->next->next;
+        curCopy = cur->next;
+        curCopy->next = next ? next->next : nullptr;
+        cur = next;
+    }
+    return res;
+}
+
+//FindFirstIntersectNode
