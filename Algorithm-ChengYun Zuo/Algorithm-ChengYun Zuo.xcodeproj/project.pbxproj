@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C41A89328727237007A6980 /* class05.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C41A89128727237007A6980 /* class05.cpp */; };
 		2C8CB6B4285C7B01009BBF15 /* class01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6B2285C7B01009BBF15 /* class01.cpp */; };
 		2C8CB6BA285D76CD009BBF15 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6B9285D76CD009BBF15 /* main.cpp */; };
 		2C8CB6BD285D7BA1009BBF15 /* class02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CB6BB285D7BA1009BBF15 /* class02.cpp */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C41A89128727237007A6980 /* class05.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class05.cpp; sourceTree = "<group>"; };
+		2C41A89228727237007A6980 /* class05.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = class05.hpp; sourceTree = "<group>"; };
 		2C8CB6A8285C78FA009BBF15 /* Algorithm-ChengYun Zuo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Algorithm-ChengYun Zuo"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8CB6B2285C7B01009BBF15 /* class01.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = class01.cpp; sourceTree = "<group>"; };
 		2C8CB6B3285C7B01009BBF15 /* class01.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = class01.hpp; sourceTree = "<group>"; };
@@ -50,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C41A89028727215007A6980 /* class05 */ = {
+			isa = PBXGroup;
+			children = (
+				2C41A89128727237007A6980 /* class05.cpp */,
+				2C41A89228727237007A6980 /* class05.hpp */,
+			);
+			path = class05;
+			sourceTree = "<group>";
+		};
 		2C8CB69F285C78FA009BBF15 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 				2C8CB6B5285D7519009BBF15 /* class02 */,
 				2C97AABD28689325000C21D5 /* class03 */,
 				2C97AAC128694F43000C21D5 /* class04 */,
+				2C41A89028727215007A6980 /* class05 */,
 				2C8CB6A9285C78FA009BBF15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +179,7 @@
 				2C8CB6BD285D7BA1009BBF15 /* class02.cpp in Sources */,
 				2C97AAC028689356000C21D5 /* class03.cpp in Sources */,
 				2C8CB6B4285C7B01009BBF15 /* class01.cpp in Sources */,
+				2C41A89328727237007A6980 /* class05.cpp in Sources */,
 				2CE2F857286A98F20047D2A1 /* class04.cpp in Sources */,
 				2C8CB6BA285D76CD009BBF15 /* main.cpp in Sources */,
 			);

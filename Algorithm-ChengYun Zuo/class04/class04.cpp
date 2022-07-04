@@ -575,3 +575,131 @@ RandomNode* CopyListWithRandom::copyListWithRandom2(RandomNode *head){
 }
 
 //FindFirstIntersectNode
+//怎么判断有环还是无环，有环怎么找出第一个无环节点。
+/*
+ 1. 两个链表都无环
+ 2. 一个有环一个无环（不可能相交）
+ 3. 两个都有环
+    1) 不共用环->不相交
+    2) 相交点在环外
+    3) 相交点在环上
+ */
+
+//find the first loop node
+Node* FindFirstIntersectNode::getLoopNode(Node *head){
+    if (head == nullptr || head->next == nullptr || head->next->next == nullptr) {
+        return nullptr;
+    }
+    //faster and slower pointer
+    Node* n1 = head->next; //slower
+    Node* n2 = head->next->next; //faster
+    while (n1 != n2) {
+        if (n1->next == nullptr || n2->next->next == nullptr) {
+            return nullptr;
+        }
+        n1 = n1->next;
+        n2 = n2->next->next;
+    }
+    //keep slower pointer, let faster pointer to head
+    n2 = head; // n2 -> walk again from head
+    while (n1 != n2) {
+        n1 = n1->next;
+        n2 = n2->next;
+    }
+    return n1;
+}
+
+//无环情况
+Node* FindFirstIntersectNode::noLoop(Node *head1, Node *head2){
+    if (head1 == nullptr || head2 == nullptr) {
+        return nullptr;
+    }
+    Node* cur1 = head1;
+    Node* cur2 = head2;
+    int n = 0;
+    //caculate the distance of head1 and head2
+    while (cur1->next) {
+        n++;
+        cur1 = cur1->next;
+    }
+    while (cur2->next) {
+        n--;
+        cur2 = cur2->next;
+    }
+    //cur1 and cur2 point their tail
+    if (cur1 != cur2) {
+        return nullptr;
+    }
+    //let longer linkedlist walk first
+    //let cur1 be the longer list and cur2 the shorter
+    cur1 = n > 0 ? head1 : head2;
+    cur2 = cur1 == head1 ? head2 : head1;
+    n = abs(n);
+    while (n) {
+        n--;
+        cur1 = cur1->next;
+    }
+    while (cur1 != cur2) {
+        cur1 = cur1->next;
+        cur2 = cur2->next;
+    }
+    return cur1;
+}
+
+//均有环情况
+Node* FindFirstIntersectNode::bothLoop(Node *head1, Node *loop1, Node *head2, Node *loop2){
+    Node* cur1 = nullptr;
+    Node* cur2 = nullptr;
+    //情况1:交点在环外
+    //just like no loop
+    if (loop1 == loop2) {
+        cur1 = head1;
+        cur2 = head2;
+        int n = 0;
+        while (cur1 != loop1) {
+            n++;
+            cur1 = cur1->next;
+        }
+        while (cur2 != loop2) {
+            n--;
+            cur2 = cur2->next;
+        }
+        cur1 = n > 0 ? head1 : head2;
+        cur2 = cur1 == head1 ? head2 : head1;
+        n = abs(n);
+        while (n) {
+            n--;
+            cur1 = cur1->next;
+        }
+        while (cur1 != cur2) {
+            cur1 = cur1->next;
+            cur2 = cur2->next;
+        }
+        return cur1;
+    }else {//情况2:交点在环内
+        cur1 = loop1->next;
+        while (cur1 != loop1) {
+            if (cur1 == loop2) {
+                return loop1;
+            }
+            cur1 = cur1->next;
+        }
+        return nullptr;
+    }
+}
+
+//mian function
+Node* FindFirstIntersectNode::getIntersectNode(Node *head1, Node *head2){
+    if (head1 == nullptr || head2 == nullptr) {
+        return nullptr;
+    }
+    Node* loop1 = getLoopNode(head1);
+    Node* loop2 = getLoopNode(head2);
+    if (loop1 == nullptr && loop2 == nullptr) {
+        return noLoop(head1, head2);
+    }else if (loop1 && loop2) {
+        return bothLoop(head1, loop1, head2, loop2);
+    }else {
+        return nullptr;
+    }
+}

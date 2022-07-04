@@ -287,7 +287,26 @@ int main(int argc, const char * argv[]){
 //    RandomNode* head7Copy2 = CopyListWithRandom::copyListWithRandom2(head7);
 //    CopyListWithRandom::printRandLinkedList(head7Copy2);
     
-    //
-   
+    //FindFirstIntersectNode
+//    Node* head8 = new Node(1);
+//    head8->next = new Node(2);
+//    head8->next->next = new Node(3);
+//    head8->next->next->next = new Node(4);
+//    head8->next->next->next->next = new Node(5);
+//    Node* p5 = head8->next->next->next->next;
+//    head8->next->next->next->next->next = new Node(6);
+//    head8->next->next->next->next->next->next = new Node(7);
+//    head8->next->next->next->next->next->next->next = new Node(8);
+//    head8->next->next->next->next->next->next->next->next = p5;
+//
+//    Node* head9 = new Node(1);
+//    head9->next = new Node(2);
+//    //head9->next->next = head8->next->next;//环外
+//    //head9->next->next = head8->next->next;//无环
+//    //head9->next->next = head8->next->next->next->next->next;//环内
+//    Node* res = FindFirstIntersectNode::getIntersectNode(head8, head9);
+//    //ReverseList::printLinkedList(res);
+    
+    
     return 0;
 }
