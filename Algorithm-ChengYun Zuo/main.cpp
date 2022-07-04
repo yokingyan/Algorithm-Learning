@@ -11,6 +11,7 @@
 #include "class02.hpp"
 #include "class03.hpp"
 #include "class04.hpp"
+#include "class05.hpp"
 
 
 using namespace std;
@@ -307,6 +308,36 @@ int main(int argc, const char * argv[]){
 //    Node* res = FindFirstIntersectNode::getIntersectNode(head8, head9);
 //    //ReverseList::printLinkedList(res);
     
+    /*
+     class 05 二叉树
+     */
+    
+    binaryNode* bHead1 = new binaryNode(5);
+    bHead1->left = new binaryNode(3);
+    bHead1->right = new binaryNode(8);
+    bHead1->left->left = new binaryNode(2);
+    bHead1->left->right = new binaryNode(4);
+    bHead1->left->left->left = new binaryNode(1);
+    bHead1->right->left = new binaryNode(7);
+    bHead1->right->left->left = new binaryNode(6);
+    bHead1->right->right = new binaryNode(10);
+    bHead1->right->right->left = new binaryNode(9);
+    bHead1->right->right->right = new binaryNode(11);
+    cout<<"==============recursive=============="<<endl;
+    cout<<"pre-order: ";
+    PreInPosTraversal::preOrderRecur(bHead1);
+    cout<<endl;
+    cout<<"in-order: ";
+    PreInPosTraversal::inOrderRecur(bHead1);
+    cout<<endl;
+    cout<<"pos-order: ";
+    PreInPosTraversal::posOrderRecur(bHead1);
+    cout<<endl;
+    cout<<"============unrecursive============="<<endl;
+    PreInPosTraversal::preOrderUnRecur(bHead1);
+    PreInPosTraversal::inOrderUnRecur(bHead1);
+    PreInPosTraversal::posOrderUnRecur1(bHead1);
+    PreInPosTraversal::posOrderUnRecur2(bHead1);
     
     return 0;
 }
