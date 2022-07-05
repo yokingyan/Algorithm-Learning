@@ -12,6 +12,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <sstream>
 
 
 using namespace std;
@@ -38,7 +39,13 @@ public:
     static void posOrderUnRecur2(binaryNode* head);
 };
 
-
+//打印二叉树
+class PrintBinaryTree{
+public:
+    static void printTree(binaryNode* head);
+    static void printInOrder(binaryNode* head, int height, string to, int len);
+    static string getSpace(int num);
+};
 
 
 

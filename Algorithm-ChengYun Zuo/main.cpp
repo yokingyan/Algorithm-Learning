@@ -323,21 +323,23 @@ int main(int argc, const char * argv[]){
     bHead1->right->right = new binaryNode(10);
     bHead1->right->right->left = new binaryNode(9);
     bHead1->right->right->right = new binaryNode(11);
-    cout<<"==============recursive=============="<<endl;
-    cout<<"pre-order: ";
-    PreInPosTraversal::preOrderRecur(bHead1);
-    cout<<endl;
-    cout<<"in-order: ";
-    PreInPosTraversal::inOrderRecur(bHead1);
-    cout<<endl;
-    cout<<"pos-order: ";
-    PreInPosTraversal::posOrderRecur(bHead1);
-    cout<<endl;
-    cout<<"============unrecursive============="<<endl;
-    PreInPosTraversal::preOrderUnRecur(bHead1);
-    PreInPosTraversal::inOrderUnRecur(bHead1);
-    PreInPosTraversal::posOrderUnRecur1(bHead1);
-    PreInPosTraversal::posOrderUnRecur2(bHead1);
+//    cout<<"==============recursive=============="<<endl;
+//    cout<<"pre-order: ";
+//    PreInPosTraversal::preOrderRecur(bHead1);
+//    cout<<endl;
+//    cout<<"in-order: ";
+//    PreInPosTraversal::inOrderRecur(bHead1);
+//    cout<<endl;
+//    cout<<"pos-order: ";
+//    PreInPosTraversal::posOrderRecur(bHead1);
+//    cout<<endl;
+//    cout<<"============unrecursive============="<<endl;
+//    PreInPosTraversal::preOrderUnRecur(bHead1);
+//    PreInPosTraversal::inOrderUnRecur(bHead1);
+//    PreInPosTraversal::posOrderUnRecur1(bHead1);
+//    PreInPosTraversal::posOrderUnRecur2(bHead1);
+    //PrintBinaryTree::printTree(bHead1);
+    
     
     return 0;
 }

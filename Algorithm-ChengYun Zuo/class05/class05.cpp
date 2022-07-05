@@ -148,3 +148,33 @@ void PreInPosTraversal::posOrderUnRecur2(binaryNode *head){
     }
     cout<<endl;
 }
+
+//打印二叉树
+void PrintBinaryTree::printTree(binaryNode* head){
+    cout<<"Binary Tree: ";
+    printInOrder(head, 0, "H", 17);
+    cout<<endl;
+}
+
+void PrintBinaryTree::printInOrder(binaryNode* head, int height, string to, int len){
+    if (head == nullptr) {
+        return;
+    }
+    printInOrder(head->right, height + 1, "v", len);
+    string val = to + to_string(head->value) + to;
+    int lenM = val.size();
+    int lenL = (len - lenM) / 2;
+    int lenR = len - lenM - lenL;
+    val = getSpace(lenL) + val + getSpace(lenR);
+    cout<<getSpace(height * len)<<val;
+    printInOrder(head->left, height + 1, "^", len);
+}
+
+string PrintBinaryTree::getSpace(int num){
+    char space = ' ';
+    stringbuf buf("", ios_base::in | ios_base::out | ios_base::ate);
+    for (int i = 0; i < num; i++) {
+        buf.sputc(space);
+    }
+    return buf.str();
+}
