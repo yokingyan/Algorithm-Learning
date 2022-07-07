@@ -149,7 +149,7 @@ void PreInPosTraversal::posOrderUnRecur2(binaryNode *head){
     cout<<endl;
 }
 
-//打印二叉树
+//打印二叉树（需修改。。。。）
 void PrintBinaryTree::printTree(binaryNode* head){
     cout<<"Binary Tree: ";
     printInOrder(head, 0, "H", 17);
@@ -177,4 +177,140 @@ string PrintBinaryTree::getSpace(int num){
         buf.sputc(space);
     }
     return buf.str();
+}
+
+//求二叉树宽度
+int TreeMaxWidth::getMaxWidth(binaryNode *head){
+    if (head == nullptr) {
+        return 0;
+    }
+    int maxWidth = 0;
+    int curWidth = 0;
+    int curLevel = 0;
+    unordered_map<binaryNode*, int> levelMap;
+    levelMap.insert(make_pair(head, 1));
+    queue<binaryNode*> helpQuque;
+    helpQuque.push(head);
+    binaryNode* node = nullptr;
+    binaryNode* left = nullptr;
+    binaryNode* right = nullptr;
+    while (!helpQuque.empty()) {
+        node = helpQuque.front();
+        helpQuque.pop();
+        left = node->left;
+        right = node->right;
+        if (left) {
+            levelMap.insert(make_pair(left, levelMap[node] + 1));
+            helpQuque.push(left);
+        }
+        if (right) {
+            levelMap.insert(make_pair(right, levelMap[node] + 1));
+            helpQuque.push(right);
+        }
+        if (levelMap[node] > curLevel) {
+            curWidth = 0;
+            curLevel = levelMap[node];
+        }else {
+            curWidth++;
+        }
+        maxWidth = max(maxWidth, curWidth);
+    }
+    return  maxWidth;
+}
+
+//二叉搜索树
+int IsBST::preValue = INT_MIN;
+
+bool IsBST::isBST1(binaryNode *head){
+    if (head == nullptr) {
+        return true;
+    }
+    bool isLeftBst = isBST1(head->left);
+    if (!isLeftBst) {
+        return false;
+    }
+    if (head->value <= preValue) {
+        return false;
+    }else {
+        preValue = head->value;
+    }
+    return isBST1(head->right);
+}
+
+bool IsBST::isBST2(binaryNode *head){
+    vector<binaryNode*> inOrderList;
+    process(head, inOrderList);
+    int preValue = INT_MIN;
+    for(binaryNode* cur : inOrderList) {
+        if (preValue > cur->value) {
+            return false;
+        }
+        preValue = cur->value;
+    }
+    return true;
+}
+
+void IsBST::process(binaryNode* head, vector<binaryNode*>& inOrderList){
+    if (head == nullptr) {
+        return;
+    }
+    process(head->left, inOrderList);
+    inOrderList.push_back(head);
+    process(head->right, inOrderList);
+}
+
+bool IsBST::isBST3(binaryNode *head){
+    if (head) {
+        int preValue = INT_MIN;
+        stack<binaryNode*> helpStack;
+        while (!helpStack.empty() || head) {
+            if (head) {
+                helpStack.push(head);
+                head = head->left;
+            }else {
+                head = helpStack.top();
+                helpStack.pop();
+                //======
+                if (head->value <= preValue) {
+                    return false;
+                }else {
+                    preValue = head->value;
+                }
+                //======
+                head = head->right;
+            }
+        }
+    }
+    return true;
+}
+
+//完全二叉树
+bool IsCBT::isCBT(binaryNode *head){
+    if (head == nullptr) {
+        return true;
+    }
+    queue<binaryNode*> helpQueue;
+    bool leaf = false;
+    binaryNode* left = nullptr;
+    binaryNode* right = nullptr;
+    helpQueue.push(head);
+    while (!helpQueue.empty()) {
+        head = helpQueue.front();
+        helpQueue.pop();
+        left = head->left;
+        right = head->right;
+        if ((leaf && (left != nullptr || right != nullptr)) //表示leaf为true后，之后的节点均需为叶子结点
+            || (left == nullptr && right != nullptr)) {
+            return false;
+        }
+        if (left) {
+            helpQueue.push(left);
+        }
+        if (right) {
+            helpQueue.push(right);
+        }else {
+            leaf = true;
+        }
+    }
+    return true;
 }

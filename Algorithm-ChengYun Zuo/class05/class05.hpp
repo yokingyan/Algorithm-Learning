@@ -13,6 +13,8 @@
 #include <vector>
 #include <stack>
 #include <sstream>
+#include <unordered_map>
+#include <queue>
 
 
 using namespace std;
@@ -47,10 +49,27 @@ public:
     static string getSpace(int num);
 };
 
+//TreeMaxWidth
+class TreeMaxWidth{
+public:
+    static int getMaxWidth(binaryNode* head);
+};
 
+//IsBST
+class IsBST{
+public:
+    static int preValue;
+    static bool isBST1(binaryNode* head);
+    static bool isBST2(binaryNode* head);
+    static void process(binaryNode* head, vector<binaryNode*>& inOrderList);
+    static bool isBST3(binaryNode* head);
+    
+};
 
-
-
+class IsCBT{
+public:
+    static bool isCBT(binaryNode* head);
+};
 
 
 

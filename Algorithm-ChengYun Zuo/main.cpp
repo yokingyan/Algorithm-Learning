@@ -323,6 +323,7 @@ int main(int argc, const char * argv[]){
     bHead1->right->right = new binaryNode(10);
     bHead1->right->right->left = new binaryNode(9);
     bHead1->right->right->right = new binaryNode(11);
+    //二叉树的遍历
 //    cout<<"==============recursive=============="<<endl;
 //    cout<<"pre-order: ";
 //    PreInPosTraversal::preOrderRecur(bHead1);
@@ -338,8 +339,24 @@ int main(int argc, const char * argv[]){
 //    PreInPosTraversal::inOrderUnRecur(bHead1);
 //    PreInPosTraversal::posOrderUnRecur1(bHead1);
 //    PreInPosTraversal::posOrderUnRecur2(bHead1);
-    //PrintBinaryTree::printTree(bHead1);
     
+    //打印二叉树
+    //PrintBinaryTree::printTree(bHead1); //乱码
+    
+    //求二叉树的最大宽度
+//    cout<<"The Max Width Of The Tree is: "<<TreeMaxWidth::getMaxWidth(bHead1)<<endl;
+    
+    //二叉树的相关概念及其实现判断
+    //1.如何判断一颗二叉树是否是搜索二叉树（BST）？
+//    cout<<(IsBST::isBST1(bHead1) ? "True" : "False")<<" ";
+//    cout<<(IsBST::isBST2(bHead1) ? "True" : "False")<<" ";
+//    cout<<(IsBST::isBST3(bHead1) ? "True" : "False")<<endl;
+    
+    //2.如何判断一棵二叉树是完全二叉树（CBT）？
+    cout<<(IsCBT::isCBT(bHead1) ? "True" : "False")<<endl;
+    
+    //3.
+
     
     return 0;
 }
