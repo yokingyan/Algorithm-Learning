@@ -14,6 +14,7 @@
 #include <stack>
 #include <sstream>
 #include <unordered_map>
+#include <unordered_set>
 #include <queue>
 
 
@@ -71,7 +72,66 @@ public:
     static bool isCBT(binaryNode* head);
 };
 
+//判断是否为满二叉树
+class Info{
+public:
+    int height;
+    int nodeNum;
+    
+    Info(int height, int nodeNum):height(height), nodeNum(nodeNum) {}
+    
+    static bool isFull(binaryNode* head);
+    static Info process(binaryNode* head);
+};
 
+//判断是否为平衡二叉树
+class IsBalancedTree{
+public:
+    bool isB;
+    int height;
+    
+    IsBalancedTree(bool isB, int height):isB(isB), height(height) {};
+    
+    static bool isBalanced(binaryNode* head);
+    static IsBalancedTree process(binaryNode* head);
+};
+
+//给定两个二叉树节点node1和node2，找到他们的最低公共祖先节点
+class LowestCommonAncestor{
+public:
+    static binaryNode* lowestCommonAncestor1(binaryNode* head, binaryNode* o1, binaryNode* o2);
+    static void process(binaryNode* head, unordered_map<binaryNode*, binaryNode*>& fatherMap);
+    static binaryNode* lowestCommonAncestor2(binaryNode* head, binaryNode* o1, binaryNode* o2);
+};
+
+//在二叉树中找到一个节点的后继节点
+//SuccessorNode
+struct nodeS{
+    int value;
+    nodeS* left;
+    nodeS* right;
+    nodeS* parent;
+    
+    nodeS(int value):value(value), left(nullptr), right(nullptr), parent(nullptr) {}
+};
+
+class SuccessorNode{
+public:
+    static nodeS* getSuccessorNode(nodeS* head);
+    static nodeS* getLeftMost(nodeS* head);
+};
+
+//SerializeAndReconstructTree
+class SerializeAndReconstructTree{
+public:
+    
+};
+
+//PaperFolding
+class PaperFolding{
+public:
+    
+};
 
 
 #endif /* class05_hpp */

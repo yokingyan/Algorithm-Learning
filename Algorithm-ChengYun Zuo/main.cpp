@@ -12,6 +12,7 @@
 #include "class03.hpp"
 #include "class04.hpp"
 #include "class05.hpp"
+#include "class06.hpp"
 
 
 using namespace std;
@@ -323,6 +324,24 @@ int main(int argc, const char * argv[]){
     bHead1->right->right = new binaryNode(10);
     bHead1->right->right->left = new binaryNode(9);
     bHead1->right->right->right = new binaryNode(11);
+    
+    //满二叉树
+    binaryNode* bHead2 = new binaryNode(1);
+    bHead2->left = new binaryNode(2);
+    bHead2->right = new binaryNode(3);
+    bHead2->left->left = new binaryNode(4);
+    bHead2->left->right = new binaryNode(5);
+    bHead2->right->left = new binaryNode(6);
+    bHead2->right->right = new binaryNode(7);
+    
+    //非平衡二叉树
+    binaryNode* bHead3 = new binaryNode(1);
+    bHead3->left = new binaryNode(1);
+    bHead3->right = new binaryNode(1);
+    bHead3->left->left = new binaryNode(1);
+    bHead3->left->left->left = new binaryNode(1);
+    bHead3->left->left->left->left = new binaryNode(1);
+    
     //二叉树的遍历
 //    cout<<"==============recursive=============="<<endl;
 //    cout<<"pre-order: ";
@@ -353,10 +372,61 @@ int main(int argc, const char * argv[]){
 //    cout<<(IsBST::isBST3(bHead1) ? "True" : "False")<<endl;
     
     //2.如何判断一棵二叉树是完全二叉树（CBT）？
-    cout<<(IsCBT::isCBT(bHead1) ? "True" : "False")<<endl;
+//    cout<<(IsCBT::isCBT(bHead1) ? "True" : "False")<<endl;
     
-    //3.
+    //3.如何判断一棵二叉树是满二叉树？
+//    cout<<(Info::isFull(bHead2) ? "True" : "False")<<endl;
+    
+    //4.如何判断一棵二叉树是平衡二叉树？
+//    cout<<(IsBalancedTree::isBalanced(bHead1) ? "True" : "False")<<endl;
+//    cout<<(IsBalancedTree::isBalanced(bHead2) ? "True" : "False")<<endl;
+//    cout<<(IsBalancedTree::isBalanced(bHead3) ? "True" : "False")<<endl;
+    
+    //LowestCommonAncestor
+//    cout<<LowestCommonAncestor::lowestCommonAncestor1(bHead1, bHead1->right->left->left, bHead1->right->right->right)->value<<endl;
+//    cout<<LowestCommonAncestor::lowestCommonAncestor1(bHead1, bHead1->left->right, bHead1->right->left)->value<<endl;
+//    cout<<LowestCommonAncestor::lowestCommonAncestor2(bHead1, bHead1->left->right, bHead1->right->left)->value<<endl;
 
+    //在二叉树中找到一个节点的后继节点
+//    nodeS* headS = new nodeS(6);
+//    headS->left = new nodeS(3);
+//    headS->left->parent = headS;
+//    headS->left->left = new nodeS(1);
+//    headS->left->left->parent = headS->left;
+//    headS->left->left->right = new nodeS(2);
+//    headS->left->left->right->parent = headS->left->left;
+//    headS->left->right = new nodeS(4);
+//    headS->left->right->parent = headS->left;
+//    headS->left->right->right = new nodeS(5);
+//    headS->left->right->right->parent = headS->left->right;
+//    headS->right = new nodeS(9);
+//    headS->right->parent = headS;
+//    headS->right->left = new nodeS(8);
+//    headS->right->left->parent = headS->right;
+//    headS->right->left->left = new nodeS(7);
+//    headS->right->left->left->parent = headS->right->left;
+//    headS->right->right = new nodeS(10);
+//    headS->right->right->parent = headS->right;
+//    nodeS* test = headS->left->left;
+//    cout<<test->value<<" next: "<<SuccessorNode::getSuccessorNode(test)->value<<endl;
+//    test = headS->left->left->right;
+//    cout<<test->value<<" next: "<<SuccessorNode::getSuccessorNode(test)->value<<endl;
+//    test = headS->left->right;
+//    cout<<test->value<<" next: "<<SuccessorNode::getSuccessorNode(test)->value<<endl;
+    
+    //SerializeAndReconstructTree
+    
+    //PaperFolding
+    
+    
+    
+    /*
+     class 06 图
+     */
+    
+    
+    
+    
     
     return 0;
 }

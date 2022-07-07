@@ -314,3 +314,121 @@ bool IsCBT::isCBT(binaryNode *head){
     }
     return true;
 }
+
+//判断是否为满二叉树
+bool Info::isFull(binaryNode *head){
+    if (head == nullptr) {
+        return true;
+    }
+    Info data = process(head);
+    return data.nodeNum == ((1 << data.height) - 1);
+}
+
+Info Info::process(binaryNode *head){
+    if (head == nullptr) {
+        return Info(0, 0);
+    }
+    Info leftData = process(head->left);
+    Info rightData = process(head->right);
+    
+    int height = max(leftData.height, rightData.height) + 1;
+    int nodeNum = leftData.nodeNum + rightData.nodeNum + 1;
+    
+    return Info(height, nodeNum);
+}
+
+//判断是否为平衡二叉树
+bool IsBalancedTree::isBalanced(binaryNode *head){
+    return process(head).isB;
+}
+
+IsBalancedTree IsBalancedTree::process(binaryNode *head){
+    if (head == nullptr) {
+        return IsBalancedTree(true, 0);
+    }
+    IsBalancedTree leftData = process(head->left);
+    IsBalancedTree rightData = process(head->right);
+    
+    int height = max(leftData.height, rightData.height) + 1;
+    bool isB = leftData.isB && rightData.isB && abs(leftData.height - rightData.height) < 2;
+    return IsBalancedTree(isB, height);
+}
+
+//LowestCommonAncestor
+binaryNode* LowestCommonAncestor::lowestCommonAncestor1(binaryNode *head, binaryNode *o1, binaryNode *o2){
+    unordered_map<binaryNode*, binaryNode*> fatherMap;
+    fatherMap.insert(make_pair(head, head));
+    process(head, fatherMap);
+    
+    unordered_set<binaryNode*> helpSet;
+    binaryNode* cur = o1;
+    while (cur != fatherMap[cur]) {
+        helpSet.insert(cur);
+        cur = fatherMap[cur];
+    }
+    helpSet.insert(head);
+    
+    cur = o2;
+    while (cur != fatherMap[cur]) {
+        if (helpSet.count(cur)) {
+            return cur;
+        }else {
+            cur = fatherMap[cur];
+        }
+    }
+    return cur;//wrong
+}
+
+void LowestCommonAncestor::process(binaryNode *head, unordered_map<binaryNode *, binaryNode *>& fatherMap){
+    if (head == nullptr) {
+        return;
+    }
+    fatherMap.insert(make_pair(head->left, head));
+    fatherMap.insert(make_pair(head->right, head));
+    process(head->left, fatherMap);
+    process(head->right, fatherMap);
+}
+
+binaryNode* LowestCommonAncestor::lowestCommonAncestor2(binaryNode *head, binaryNode *o1, binaryNode *o2){
+    if (head == nullptr || head == o1 || head == o2) {
+        return head;
+    }
+    binaryNode* left = lowestCommonAncestor2(head->left, o1, o2);
+    binaryNode* right = lowestCommonAncestor2(head->right, o1, o2);
+    if (left != nullptr && right != nullptr) {
+        return head;
+    }
+    return left != nullptr ? left : right;
+}
+
+//在二叉树中找到一个节点的后继节点
+nodeS* SuccessorNode::getSuccessorNode(nodeS* head){
+    if (head == nullptr) {
+        return head;
+    }
+    if (head->right) {
+        return getLeftMost(head->right);
+    }else {
+        nodeS* parent = head->parent;
+        while (parent && parent->left != head) {
+            head = parent;
+            parent = head->parent;
+        }
+        return parent;
+    }
+}
+
+nodeS* SuccessorNode::getLeftMost(nodeS* head){
+    if (head) {
+        return head;
+    }
+    while (head->left) {
+        head = head->left;
+    }
+    return head;
+}
+
+
+//SerializeAndReconstructTree
+
+//PaperFolding
