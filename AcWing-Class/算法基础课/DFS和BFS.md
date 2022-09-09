@@ -183,7 +183,7 @@ Q...
 
 
 
-![对角线放置问题](/Users/yan/Desktop/Algorithm-Learning/AcWing-Class/算法基础课/picture/n-empress.jpg)
+![对角线放置问题](~/Algorithm-Learning/AcWing-Class/算法基础课/picture/n-empress.jpg)
 
 
 
