@@ -244,11 +244,54 @@ int main() {
 
 
 
-
-
 **2. 按行来搜索：**
 
-```c++
+- 选择方式：一共有n行，每行有n个空格决定放那个空格里
+- 边界条件：到达最后一行，即：x == n
+- 如何放置皇后：因为是按行放，所以只需判断当前行下的每一列是否有皇后，同时，对角线，反对角线是否有皇后
 
+```c++
+#include <iostream>
+
+using namespace std;
+
+const int N = 10;
+
+int n;
+int g[N][N];
+bool col[N], dg[N], udg[N];
+
+void dfs(int x) {
+     if (x == n) {
+          for (int i = 0; i < n; ++i) puts(g[i]);
+          puts("");
+          return;
+     }
+     
+     for (int i = 0; i < n; ++i) {
+          if (!col[i] && !dg[x + i] && !udg[n - x + i]) {
+               g[x][i] = 'Q';
+               col[i] = dg[x + i] = udg[n - x + i] = true;
+               dfs(x + 1);
+               g[x][i] = '.';
+               col[i] = dg[x + i] = udg[n - x + i] = false;
+          }
+     }
+}
+
+int main() {
+     
+     cin >> n;
+     //initialize
+     for (int i = 0; i < n; ++i) {
+          for (int j = 0; j < n; j++) {
+               g[i][j] = '.';
+          }
+     }
+     
+     dfs(0);
+     
+     return 0;
+}
 ```
 
