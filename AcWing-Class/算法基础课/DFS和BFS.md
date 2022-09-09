@@ -181,8 +181,63 @@ Q...
 - 如何放置皇后：1.每行，每列，对角线，反对角线都没有皇后的情况下，可以放。2.放完之后，dfs后，恢复现场
 - 对角线判断有没有皇后：
 
-```c++
 
+
+![对角线放置问题](/Users/yan/Downloads/截屏2022-09-09 09.43.01.jpg)
+
+
+
+
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+const int N = 20;
+
+int n;
+char g[N][N];
+bool row[N], col[N], dg[N], udg[N];//用来判断是否已经放置过皇后
+//左上角->右下角-对角线，右上角->左下角-反对角线
+
+void dfs(int x, int y, int s) {//x-行，y-列，s-目前放置的皇后
+     if (s > n) return;
+     if (y == n) y = 0, x++;
+     if (x == n) {//表明已经走到最后一行了
+          if (s == n) {//所有皇后已经放置完毕-print
+               for (int i = 0; i < n; i++) puts(g[i]);//puts 用于打印字符串
+               puts("");
+          }
+     }
+     //放置皇后的选择
+     //1.放
+     if (!row[x] && !col[y] && !dg[x + y] && !udg[n - x + y]) {
+          g[x][y] = 'Q';
+          row[x] = col[y] = dg[x + y] = udg[n - x + y] = true;
+          dfs(x, y + 1, s + 1);
+          g[x][y] = '.';
+          //回溯/恢复现场
+          row[x] = col[y] = dg[x + y] = udg[n - x + y] = false;
+     }
+     //2.不放
+     dfs(x, y + 1, s);
+}
+
+int main() {
+     
+     cin >> n;
+     //初始化
+     for (int i = 0; i < n; i++) {
+          for (int j = 0; j < n; j++) {
+               g[i][j] = '.';
+          }
+     }
+     
+     dfs(0, 0, 0);
+     
+     return 0;
+}
 ```
 
 
